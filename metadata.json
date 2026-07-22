@@ -1,0 +1,6 @@
+{
+  "name": "FlowStack",
+  "description": "Production-grade Kanban SaaS Platform with real-time workspace management, AI card sidekick, analytics, Gantt timeline, and automations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
