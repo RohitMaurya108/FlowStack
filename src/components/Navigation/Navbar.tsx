@@ -4,8 +4,6 @@ import {
   Plus,
   Bell,
   Command,
-  Sun,
-  Moon,
   Zap,
   Kanban,
   List as ListIcon,
@@ -127,19 +125,6 @@ export const Navbar: React.FC = () => {
         >
           <Plus className="w-3.5 h-3.5 text-violet-600 dark:text-indigo-400" />
           <span>New Board</span>
-        </button>
-
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          className="p-1.5 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-zinc-900 rounded-lg transition-colors flex items-center justify-center"
-        >
-          {theme === 'dark' ? (
-            <Sun className="w-4 h-4 text-amber-400 hover:rotate-45 transition-transform" />
-          ) : (
-            <Moon className="w-4 h-4 text-indigo-600 hover:-rotate-12 transition-transform" />
-          )}
         </button>
 
         {/* Shortcuts Cheat Sheet */}

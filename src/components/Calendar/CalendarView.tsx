@@ -39,16 +39,16 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onOpenCardModal }) =
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-slate-950 p-6 space-y-4 overflow-y-auto text-slate-100">
+    <div className="flex-1 flex flex-col h-full bg-slate-50 dark:bg-slate-950 p-6 space-y-4 overflow-y-auto text-slate-800 dark:text-slate-100 transition-colors">
       {/* Top Calendar Bar */}
-      <div className="flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl shadow-lg">
+      <div className="flex items-center justify-between p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm dark:shadow-lg transition-colors">
         <div className="flex items-center space-x-3">
-          <CalendarIcon className="w-6 h-6 text-indigo-400" />
+          <CalendarIcon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           <div>
-            <h2 className="text-lg font-bold text-white">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
               {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
             </h2>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               Interactive task deadline schedule for {activeBoard?.name || 'Active Board'}
             </p>
           </div>
@@ -57,19 +57,19 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onOpenCardModal }) =
         <div className="flex items-center space-x-2">
           <button
             onClick={prevMonth}
-            className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={() => setCurrentDate(new Date(2026, 6, 1))}
-            className="px-3 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-xl text-white transition-colors"
+            className="px-3 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-xl text-white transition-colors shadow-xs"
           >
             Today
           </button>
           <button
             onClick={nextMonth}
-            className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -77,9 +77,9 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onOpenCardModal }) =
       </div>
 
       {/* Days of Week Header */}
-      <div className="grid grid-cols-7 gap-2 text-center text-xs font-bold uppercase tracking-wider text-slate-500">
+      <div className="grid grid-cols-7 gap-2 text-center text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
         {daysOfWeek.map((day) => (
-          <div key={day} className="py-2 bg-slate-900/40 rounded-lg border border-slate-800/40">
+          <div key={day} className="py-2 bg-white/60 dark:bg-slate-900/40 rounded-lg border border-slate-200/80 dark:border-slate-800/40 shadow-xs">
             {day}
           </div>
         ))}
@@ -89,7 +89,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onOpenCardModal }) =
       <div className="grid grid-cols-7 gap-2 flex-1 min-h-[500px]">
         {/* Empty cells before month start */}
         {Array.from({ length: firstDayIndex }).map((_, i) => (
-          <div key={`empty_${i}`} className="bg-slate-950/20 border border-slate-900/40 rounded-xl p-2 opacity-30" />
+          <div key={`empty_${i}`} className="bg-slate-200/30 dark:bg-slate-950/20 border border-slate-200/50 dark:border-slate-900/40 rounded-xl p-2 opacity-40" />
         ))}
 
         {/* Days of current month */}
@@ -105,22 +105,22 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onOpenCardModal }) =
           return (
             <div
               key={dateISO}
-              className={`min-h-[100px] p-2 bg-slate-900/70 border rounded-xl flex flex-col justify-between transition-colors ${
+              className={`min-h-[100px] p-2 bg-white dark:bg-slate-900/70 border rounded-xl flex flex-col justify-between transition-colors shadow-xs ${
                 isToday
-                  ? 'border-indigo-500/80 bg-indigo-950/20 ring-1 ring-indigo-500/40'
-                  : 'border-slate-800/80 hover:border-slate-700'
+                  ? 'border-indigo-500 bg-indigo-50/60 dark:bg-indigo-950/20 ring-1 ring-indigo-500/40'
+                  : 'border-slate-200 dark:border-slate-800/80 hover:border-indigo-300 dark:hover:border-slate-700'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <span
                   className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                    isToday ? 'bg-indigo-600 text-white' : 'text-slate-400'
+                    isToday ? 'bg-indigo-600 text-white' : 'text-slate-600 dark:text-slate-400'
                   }`}
                 >
                   {dayNum}
                 </span>
                 {dayCards.length > 0 && (
-                  <span className="text-[10px] font-semibold text-slate-500">{dayCards.length} tasks</span>
+                  <span className="text-[10px] font-semibold text-slate-400 dark:text-slate-500">{dayCards.length} tasks</span>
                 )}
               </div>
 
@@ -129,9 +129,9 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onOpenCardModal }) =
                   <button
                     key={card.id}
                     onClick={() => onOpenCardModal(card.id)}
-                    className="w-full text-left p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700/60 text-[11px] truncate block font-medium transition-colors"
+                    className="w-full text-left p-1.5 rounded-lg bg-indigo-50/80 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700 border border-indigo-100 dark:border-slate-700/60 text-[11px] truncate block font-medium transition-colors shadow-xs"
                   >
-                    <span className="text-indigo-300 font-semibold truncate block">{card.title}</span>
+                    <span className="text-indigo-700 dark:text-indigo-300 font-semibold truncate block">{card.title}</span>
                   </button>
                 ))}
               </div>

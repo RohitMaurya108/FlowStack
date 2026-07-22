@@ -19,25 +19,25 @@ export const UpgradeModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
-      <div className="w-full max-w-lg bg-slate-900 border border-indigo-500/50 rounded-2xl p-6 shadow-2xl space-y-5 text-slate-100 relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+      <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-500/50 rounded-2xl p-6 shadow-2xl space-y-5 text-slate-800 dark:text-slate-100 relative transition-colors">
         <button
           onClick={() => {
             setIsSuccess(false);
             setIsUpgradeModalOpen(false);
           }}
-          className="absolute top-4 right-4 text-slate-400 hover:text-white"
+          className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white"
         >
           <X className="w-5 h-5" />
         </button>
 
         {isSuccess ? (
           <div className="text-center py-6 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center mx-auto text-emerald-400">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-500 flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400">
               <Check className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-black text-white">Subscription Upgraded!</h3>
-            <p className="text-xs text-slate-300 max-w-xs mx-auto">
+            <h3 className="text-xl font-black text-slate-900 dark:text-white">Subscription Upgraded!</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-300 max-w-xs mx-auto">
               Welcome to FlowStack Pro. Unlimited Gemini AI Sidekick, Gantt Timelines, and Burndown Analytics are now unlocked!
             </p>
             <button
@@ -53,42 +53,42 @@ export const UpgradeModal: React.FC = () => {
         ) : (
           <>
             <div className="space-y-1">
-              <div className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px] font-bold uppercase">
-                <Sparkles className="w-3 h-3 text-amber-400 fill-amber-400" />
+              <div className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30 text-[10px] font-bold uppercase">
+                <Sparkles className="w-3 h-3 text-amber-500 dark:text-amber-400 fill-amber-500 dark:fill-amber-400" />
                 <span>FlowStack Pro Plan Upgrade</span>
               </div>
-              <h3 className="text-lg font-black text-white">Unlock High-Velocity Team Features</h3>
+              <h3 className="text-lg font-black text-slate-900 dark:text-white">Unlock High-Velocity Team Features</h3>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-              <div className="flex items-center justify-between font-bold text-white border-b border-slate-800 pb-2">
+            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+              <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">
                 <span>FlowStack Pro Membership</span>
-                <span className="text-indigo-400">$12.00 / month</span>
+                <span className="text-indigo-600 dark:text-indigo-400">$12.00 / month</span>
               </div>
-              <ul className="space-y-1.5 text-slate-300 text-[11px] pt-1">
+              <ul className="space-y-1.5 text-slate-600 dark:text-slate-300 text-[11px] pt-1">
                 <li className="flex items-center space-x-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0" />
                   <span>Unlimited Gemini 3.6 Flash AI Sidekick & Subtask specs</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0" />
                   <span>Gantt Critical Path Timelines & Calendar schedules</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0" />
                   <span>Recharts Burndown Velocity & Team Workload Analytics</span>
                 </li>
               </ul>
             </div>
 
             {/* Simulated Stripe Card Input */}
-            <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-              <div className="flex items-center justify-between text-slate-400 font-semibold text-[11px]">
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 font-semibold text-[11px]">
                 <span className="flex items-center space-x-1">
-                  <CreditCard className="w-3.5 h-3.5 text-indigo-400" />
+                  <CreditCard className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                   <span>Stripe Secure Express Checkout</span>
                 </span>
-                <span className="flex items-center space-x-1 text-slate-500">
+                <span className="flex items-center space-x-1 text-slate-400 dark:text-slate-500">
                   <Lock className="w-3 h-3" />
                   <span>256-bit SSL</span>
                 </span>
@@ -97,7 +97,7 @@ export const UpgradeModal: React.FC = () => {
                 type="text"
                 readOnly
                 value="•••• •••• •••• 4242 (Demo Stripe Card)"
-                className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-lg font-mono text-slate-300 text-xs"
+                className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg font-mono text-slate-700 dark:text-slate-300 text-xs"
               />
             </div>
 
