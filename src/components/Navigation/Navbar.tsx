@@ -67,7 +67,8 @@ export const Navbar: React.FC = () => {
             setMainTab('app');
             setViewMode('board');
           }}
-          className="flex items-center space-x-2.5 group focus:outline-none"
+          style={{ backgroundColor: '#5800fb' }}
+          className="flex items-center space-x-2.5 group focus:outline-none px-2 py-1 rounded-lg"
         >
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-violet-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
             <Zap className="w-4 h-4 fill-current text-white" />

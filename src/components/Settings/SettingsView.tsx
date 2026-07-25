@@ -90,15 +90,15 @@ export const SettingsView: React.FC = () => {
   ];
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-slate-950 p-6 space-y-6 overflow-y-auto text-slate-100">
+    <div className="flex-1 flex flex-col h-full bg-slate-50 dark:bg-slate-950 p-6 space-y-6 overflow-y-auto text-slate-800 dark:text-slate-100 transition-colors">
       {/* Settings Navigation Tabs */}
-      <div className="flex items-center space-x-2 border-b border-slate-800 pb-3">
+      <div className="flex items-center space-x-2 border-b border-slate-200 dark:border-slate-800 pb-3">
         <button
           onClick={() => setActiveTab('general')}
           className={`flex items-center space-x-2 px-4 py-2 text-xs font-bold rounded-xl transition-all ${
             activeTab === 'general'
               ? 'bg-indigo-600 text-white shadow-md'
-              : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+              : 'text-slate-500 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           <Settings className="w-4 h-4" />
@@ -110,7 +110,7 @@ export const SettingsView: React.FC = () => {
           className={`flex items-center space-x-2 px-4 py-2 text-xs font-bold rounded-xl transition-all ${
             activeTab === 'members'
               ? 'bg-indigo-600 text-white shadow-md'
-              : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+              : 'text-slate-500 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           <Users className="w-4 h-4" />
@@ -122,41 +122,41 @@ export const SettingsView: React.FC = () => {
           className={`flex items-center space-x-2 px-4 py-2 text-xs font-bold rounded-xl transition-all ${
             activeTab === 'billing'
               ? 'bg-indigo-600 text-white shadow-md'
-              : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+              : 'text-slate-500 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
-          <CreditCard className="w-4 h-4 text-amber-400" />
+          <CreditCard className="w-4 h-4 text-amber-500 dark:text-amber-400" />
           <span>Plans & Stripe Billing</span>
         </button>
       </div>
 
       {/* Tab Content: General Settings */}
       {activeTab === 'general' && (
-        <div className="max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
-          <h3 className="font-bold text-sm text-white">Workspace Details</h3>
+        <div className="max-w-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4 shadow-sm dark:shadow-xl transition-colors">
+          <h3 className="font-bold text-sm text-slate-900 dark:text-white">Workspace Details</h3>
           <div className="space-y-3 text-xs">
             <div>
-              <label className="text-slate-400 font-semibold block mb-1">Workspace Name</label>
+              <label className="text-slate-500 dark:text-slate-400 font-semibold block mb-1">Workspace Name</label>
               <input
                 type="text"
                 defaultValue={activeWs.name}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white"
               />
             </div>
             <div>
-              <label className="text-slate-400 font-semibold block mb-1">Workspace Slug</label>
+              <label className="text-slate-500 dark:text-slate-400 font-semibold block mb-1">Workspace Slug</label>
               <input
                 type="text"
                 defaultValue={activeWs.slug}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-slate-400 font-mono"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-500 dark:text-slate-400 font-mono"
               />
             </div>
             <div>
-              <label className="text-slate-400 font-semibold block mb-1">Description</label>
+              <label className="text-slate-500 dark:text-slate-400 font-semibold block mb-1">Description</label>
               <textarea
                 rows={3}
                 defaultValue={activeWs.description}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white"
               />
             </div>
           </div>
@@ -165,11 +165,11 @@ export const SettingsView: React.FC = () => {
 
       {/* Tab Content: Team Members */}
       {activeTab === 'members' && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4 shadow-sm dark:shadow-xl transition-colors">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-sm text-white">Workspace Members</h3>
-              <p className="text-xs text-slate-400">Manage roles and send team invitations.</p>
+              <h3 className="font-bold text-sm text-slate-900 dark:text-white">Workspace Members</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Manage roles and send team invitations.</p>
             </div>
             <button
               onClick={() => setIsInviteModalOpen(true)}
@@ -184,16 +184,16 @@ export const SettingsView: React.FC = () => {
             {activeWs.members.map((m) => (
               <div
                 key={m.id}
-                className="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs"
+                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs"
               >
                 <div className="flex items-center space-x-3">
                   <img src={m.userAvatar} alt="" className="w-8 h-8 rounded-full object-cover" />
                   <div>
-                    <div className="font-bold text-white">{m.userName}</div>
-                    <div className="text-[11px] text-slate-400">{m.userEmail}</div>
+                    <div className="font-bold text-slate-900 dark:text-white">{m.userName}</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">{m.userEmail}</div>
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30">
                   {m.role}
                 </span>
               </div>
@@ -207,7 +207,7 @@ export const SettingsView: React.FC = () => {
         <div className="space-y-6">
           {/* Annual vs Monthly Toggle */}
           <div className="flex items-center justify-center space-x-3 text-xs font-bold">
-            <span className={!isAnnual ? 'text-white' : 'text-slate-400'}>Monthly Billing</span>
+            <span className={!isAnnual ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'}>Monthly Billing</span>
             <button
               onClick={() => setIsAnnual((prev) => !prev)}
               className="w-12 h-6 rounded-full bg-indigo-600 p-1 flex items-center transition-colors"
@@ -218,8 +218,8 @@ export const SettingsView: React.FC = () => {
                 }`}
               />
             </button>
-            <span className={isAnnual ? 'text-indigo-400' : 'text-slate-400'}>
-              Annual Billing <span className="text-amber-400 text-[10px] uppercase font-extrabold">(Save 20%)</span>
+            <span className={isAnnual ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400'}>
+              Annual Billing <span className="text-amber-600 dark:text-amber-400 text-[10px] uppercase font-extrabold">(Save 20%)</span>
             </span>
           </div>
 
@@ -234,13 +234,13 @@ export const SettingsView: React.FC = () => {
                   key={p.type}
                   className={`p-5 rounded-2xl border flex flex-col justify-between space-y-4 transition-all ${
                     isCurrent
-                      ? 'bg-slate-900 border-indigo-500 ring-2 ring-indigo-500/40 shadow-2xl'
-                      : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
+                      ? 'bg-white dark:bg-slate-900 border-indigo-500 ring-2 ring-indigo-500/40 shadow-xl'
+                      : 'bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                   }`}
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-sm text-white">{p.name}</span>
+                      <span className="font-bold text-sm text-slate-900 dark:text-white">{p.name}</span>
                       {isCurrent && (
                         <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-500 text-white">
                           Active Plan
@@ -248,15 +248,15 @@ export const SettingsView: React.FC = () => {
                       )}
                     </div>
 
-                    <div className="text-3xl font-black text-white">
+                    <div className="text-3xl font-black text-slate-900 dark:text-white">
                       ${price}
-                      <span className="text-xs text-slate-400 font-normal"> / mo / user</span>
+                      <span className="text-xs text-slate-500 dark:text-slate-400 font-normal"> / mo / user</span>
                     </div>
 
-                    <ul className="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                    <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
                       {p.features.map((f, idx) => (
                         <li key={idx} className="flex items-center space-x-2">
-                          <Check className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
                           <span>{f}</span>
                         </li>
                       ))}
@@ -270,7 +270,7 @@ export const SettingsView: React.FC = () => {
                     }}
                     className={`w-full py-2 rounded-xl text-xs font-bold transition-all ${
                       isCurrent
-                        ? 'bg-slate-800 text-slate-300 border border-slate-700'
+                        ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700'
                         : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-md'
                     }`}
                   >
@@ -285,39 +285,39 @@ export const SettingsView: React.FC = () => {
 
       {/* Invite Member Modal */}
       {isInviteModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
           <form
             onSubmit={handleInviteSubmit}
-            className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-4 text-slate-100"
+            className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl space-y-4 text-slate-800 dark:text-slate-100 transition-colors"
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-white flex items-center space-x-2">
-                <Mail className="w-5 h-5 text-indigo-400" />
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <span>Invite Team Member</span>
               </h3>
               <button type="button" onClick={() => setIsInviteModalOpen(false)}>
-                <X className="w-4 h-4 text-slate-400" />
+                <X className="w-4 h-4 text-slate-400 dark:text-slate-400" />
               </button>
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-400 block mb-1">Email Address</label>
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 block mb-1">Email Address</label>
               <input
                 type="email"
                 required
                 placeholder="colleague@company.com"
                 value={inviteEmail}
                 onChange={(e) => setInviteEmail(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-800 rounded-lg text-white"
+                className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-400 block mb-1">Role Permission</label>
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 block mb-1">Role Permission</label>
               <select
                 value={inviteRole}
                 onChange={(e) => setInviteRole(e.target.value as Role)}
-                className="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-800 rounded-lg text-white"
+                className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white"
               >
                 <option value="member">Member (Can edit cards & boards)</option>
                 <option value="admin">Admin (Can manage workspace & settings)</option>
